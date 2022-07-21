@@ -1,14 +1,14 @@
 
 #pragma once
 
-#include "Types.hpp"
+#include "types.hpp"
 
 class UF
 {
 
 public:
   
-  UF(u64 n);
+  UF(u64 node_count);
   
   ~UF();
   
@@ -23,6 +23,6 @@ public:
   u64 count();
 
 private:
-  const u64 _id;
+  const u64 m_node_count;
 
 };
