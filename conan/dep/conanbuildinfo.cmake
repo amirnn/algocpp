@@ -35,6 +35,45 @@ macro(conan_find_apple_frameworks FRAMEWORKS_FOUND FRAMEWORKS SUFFIX BUILD_TYPE)
 endmacro()
 
 
+#################
+###  DOCTEST
+#################
+set(CONAN_DOCTEST_ROOT "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
+set(CONAN_INCLUDE_DIRS_DOCTEST "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include")
+set(CONAN_LIB_DIRS_DOCTEST "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib")
+set(CONAN_BIN_DIRS_DOCTEST )
+set(CONAN_RES_DIRS_DOCTEST )
+set(CONAN_SRC_DIRS_DOCTEST )
+set(CONAN_BUILD_DIRS_DOCTEST "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
+			"/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib/cmake")
+set(CONAN_FRAMEWORK_DIRS_DOCTEST )
+set(CONAN_LIBS_DOCTEST )
+set(CONAN_PKG_LIBS_DOCTEST )
+set(CONAN_SYSTEM_LIBS_DOCTEST )
+set(CONAN_FRAMEWORKS_DOCTEST )
+set(CONAN_FRAMEWORKS_FOUND_DOCTEST "")  # Will be filled later
+set(CONAN_DEFINES_DOCTEST )
+set(CONAN_BUILD_MODULES_PATHS_DOCTEST "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib/cmake/doctest.cmake")
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_DOCTEST )
+
+set(CONAN_C_FLAGS_DOCTEST "")
+set(CONAN_CXX_FLAGS_DOCTEST "")
+set(CONAN_SHARED_LINKER_FLAGS_DOCTEST "")
+set(CONAN_EXE_LINKER_FLAGS_DOCTEST "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_DOCTEST_LIST "")
+set(CONAN_CXX_FLAGS_DOCTEST_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_DOCTEST_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_DOCTEST_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_DOCTEST "${CONAN_FRAMEWORKS_DOCTEST}" "_DOCTEST" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_DOCTEST ${CONAN_PKG_LIBS_DOCTEST} ${CONAN_SYSTEM_LIBS_DOCTEST} ${CONAN_FRAMEWORKS_FOUND_DOCTEST})
+
+
 ### Definition of global aggregated variables ###
 
 set(CONAN_PACKAGE_NAME None)
@@ -49,7 +88,7 @@ set(CONAN_SETTINGS_COMPILER_VERSION "13")
 set(CONAN_SETTINGS_OS "Macos")
 set(CONAN_SETTINGS_OS_BUILD "Macos")
 
-set(CONAN_DEPENDENCIES )
+set(CONAN_DEPENDENCIES doctest)
 # Storing original command line args (CMake helper) flags
 set(CONAN_CMD_CXX_FLAGS ${CONAN_CXX_FLAGS})
 
@@ -57,8 +96,8 @@ set(CONAN_CMD_SHARED_LINKER_FLAGS ${CONAN_SHARED_LINKER_FLAGS})
 set(CONAN_CMD_C_FLAGS ${CONAN_C_FLAGS})
 # Defining accumulated conan variables for all deps
 
-set(CONAN_INCLUDE_DIRS  ${CONAN_INCLUDE_DIRS})
-set(CONAN_LIB_DIRS  ${CONAN_LIB_DIRS})
+set(CONAN_INCLUDE_DIRS "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include" ${CONAN_INCLUDE_DIRS})
+set(CONAN_LIB_DIRS "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib" ${CONAN_LIB_DIRS})
 set(CONAN_BIN_DIRS  ${CONAN_BIN_DIRS})
 set(CONAN_RES_DIRS  ${CONAN_RES_DIRS})
 set(CONAN_FRAMEWORK_DIRS  ${CONAN_FRAMEWORK_DIRS})
@@ -68,8 +107,9 @@ set(CONAN_SYSTEM_LIBS  ${CONAN_SYSTEM_LIBS})
 set(CONAN_FRAMEWORKS  ${CONAN_FRAMEWORKS})
 set(CONAN_FRAMEWORKS_FOUND "")  # Will be filled later
 set(CONAN_DEFINES  ${CONAN_DEFINES})
-set(CONAN_BUILD_MODULES_PATHS  ${CONAN_BUILD_MODULES_PATHS})
-set(CONAN_CMAKE_MODULE_PATH  ${CONAN_CMAKE_MODULE_PATH})
+set(CONAN_BUILD_MODULES_PATHS "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib/cmake/doctest.cmake" ${CONAN_BUILD_MODULES_PATHS})
+set(CONAN_CMAKE_MODULE_PATH "/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
+			"/Users/amirnourinia/.conan/data/doctest/2.4.9/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib/cmake" ${CONAN_CMAKE_MODULE_PATH})
 
 set(CONAN_CXX_FLAGS " ${CONAN_CXX_FLAGS}")
 set(CONAN_SHARED_LINKER_FLAGS " ${CONAN_SHARED_LINKER_FLAGS}")
@@ -92,7 +132,77 @@ macro(conan_define_targets)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CONAN_CMD_C_FLAGS}")
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${CONAN_CMD_SHARED_LINKER_FLAGS}")
 
-    set(CONAN_TARGETS )
+
+    set(_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES "${CONAN_SYSTEM_LIBS_DOCTEST} ${CONAN_FRAMEWORKS_FOUND_DOCTEST} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_DOCTEST}" "${CONAN_LIB_DIRS_DOCTEST}"
+                                  CONAN_PACKAGE_TARGETS_DOCTEST "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES}"
+                                  "" doctest)
+    set(_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_DOCTEST_DEBUG} ${CONAN_FRAMEWORKS_FOUND_DOCTEST_DEBUG} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_DOCTEST_DEBUG}" "${CONAN_LIB_DIRS_DOCTEST_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_DOCTEST_DEBUG "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_DEBUG}"
+                                  "debug" doctest)
+    set(_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_DOCTEST_RELEASE} ${CONAN_FRAMEWORKS_FOUND_DOCTEST_RELEASE} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_DOCTEST_RELEASE}" "${CONAN_LIB_DIRS_DOCTEST_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_DOCTEST_RELEASE "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELEASE}"
+                                  "release" doctest)
+    set(_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_DOCTEST_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_DOCTEST_RELWITHDEBINFO} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_DOCTEST_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_DOCTEST_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_DOCTEST_RELWITHDEBINFO "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" doctest)
+    set(_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_DOCTEST_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_DOCTEST_MINSIZEREL} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_DOCTEST_MINSIZEREL}" "${CONAN_LIB_DIRS_DOCTEST_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_DOCTEST_MINSIZEREL "${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" doctest)
+
+    add_library(CONAN_PKG::doctest INTERFACE IMPORTED)
+
+    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
+    set_property(TARGET CONAN_PKG::doctest PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_DOCTEST} ${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_DOCTEST_LIST}>
+
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_DOCTEST_RELEASE} ${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_DOCTEST_RELEASE_LIST}>>
+
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_DOCTEST_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_DOCTEST_RELWITHDEBINFO_LIST}>>
+
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_DOCTEST_MINSIZEREL} ${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_DOCTEST_MINSIZEREL_LIST}>>
+
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_DOCTEST_DEBUG} ${_CONAN_PKG_LIBS_DOCTEST_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_DOCTEST_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_DOCTEST_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::doctest PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_DOCTEST}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_DOCTEST_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_DOCTEST_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_DOCTEST_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_DOCTEST_DEBUG}>)
+    set_property(TARGET CONAN_PKG::doctest PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_DOCTEST}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_DOCTEST_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_DOCTEST_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_DOCTEST_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_DOCTEST_DEBUG}>)
+    set_property(TARGET CONAN_PKG::doctest PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_DOCTEST_LIST} ${CONAN_CXX_FLAGS_DOCTEST_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_DOCTEST_RELEASE_LIST} ${CONAN_CXX_FLAGS_DOCTEST_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_DOCTEST_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_DOCTEST_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_DOCTEST_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_DOCTEST_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_DOCTEST_DEBUG_LIST}  ${CONAN_CXX_FLAGS_DOCTEST_DEBUG_LIST}>)
+
+    set(CONAN_TARGETS CONAN_PKG::doctest)
 
 endmacro()
 
