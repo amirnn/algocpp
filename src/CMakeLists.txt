@@ -1,4 +1,4 @@
 # SRC
 
-add_subdirectory("libraries")
-add_subdirectory("week 1")
+add_subdirectory("princeton")
+add_subdirectory("stanford")

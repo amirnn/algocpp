@@ -17,4 +17,5 @@ function(add_hw_test name library)
     doctest_discover_tests(${name} TEST_PREFIX "${library}_")
 endfunction()
 
-add_subdirectory("week1")
+add_subdirectory("princeton-tests")
+add_subdirectory("stanford-tests")
