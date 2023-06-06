@@ -1,7 +1,12 @@
 .DS_Store
-
 .idea
+.cache
 
 build
+target
+
 cmake-build-debug/
 cmake-build-release/
+
+ConanPresets.json
+compile_commands.json

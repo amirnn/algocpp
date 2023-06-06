@@ -6,8 +6,10 @@ I am going to use conan for dependency management.
 
 ```shell
 # Execute following commands in the terminal.
-$ cd conan/deploy
-$ conan install .. --build=missing
+cd conan
+conan install . --build=missing --profile=profiles/brew-llvm -s build_type=Debug
+# For Release
+conan install . --build=missing --profile=profiles/brew-llvm -s build_type=Release
 ```
 
 ## Build

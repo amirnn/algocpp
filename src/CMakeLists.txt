@@ -1,4 +1,4 @@
 # SRC
+include_directories("src/include")
 
-add_subdirectory("princeton")
-add_subdirectory("stanford")
+add_subdirectory("Stanford")
