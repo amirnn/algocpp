@@ -11,9 +11,9 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(MSVC)
-add_compile_options(${TARGET_NAME} PRIVATE /W4 /WX)
+add_compile_options(/W4 /WX)
 else()
-  add_compile_options(${TARGET_NAME} PRIVATE -Wall -Wextra -Wpedantic -Werror)
+  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
 
